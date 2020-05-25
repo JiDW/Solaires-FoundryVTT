@@ -1,0 +1,49 @@
+{
+    "name": "solaires",
+    "title": "Solaires",
+    "description": "Solaires est un jeu de rôles de science-fiction quimet en scène les habitants du système solaire,les Solaires, à la fin du XXIe siècle.",
+    "version": "0.1.0",
+    "templateVersion": 2,
+    "author": "Greewi, JDW",
+    "scripts": [
+        "scripts/config.js",
+        "scripts/actor.js"
+    ],
+    "styles": [
+        "styles/solaires.css"
+    ],
+    "packs": [
+        {
+            "name": "equipements",
+            "label": "Equipements",
+            "system": "solaires",
+            "module": "solaires",
+            "path": "packs/equipements.db",
+            "entity": "Item",
+            "tag": "equipement"
+        },
+        {
+            "name": "etats",
+            "label": "Etats",
+            "system": "solaires",
+            "module": "solaires",
+            "path": "packs/etats.db",
+            "entity": "Item",
+            "tag": "etat"
+        }
+    ],
+    "languages": [
+        {
+            "lang": "fr",
+            "name": "Français",
+            "path": "lang/fr.json"
+        }
+    ],
+    "socket": false,
+    "gridDistance": 2,
+    "gridUnits": "m",
+    "primaryTokenAttribute": "status.pointsPersonnage",
+    "url": "https://github.com/Greewi/Solaires-FoundryVTT",
+    "manifest": "https://raw.githubusercontent.com/Greewi/Solaires-FoundryVTT/stable/system.json",
+    "download": "https://github.com/Greewi/Solaires-FoundryVTT/archive/0.1.0.zip"
+}
