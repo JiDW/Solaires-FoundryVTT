@@ -1,0 +1,48 @@
+{
+    "Actor": {
+        "types": [
+            "personnage"
+        ],
+        "templates": {
+            "background": {
+                "biography": "",
+                "hairColor": "blue"
+            },
+            "status": {
+                "pointsPersonnage": {
+                    "min": 0,
+                    "value": 2,
+                    "max": 2
+                }
+            }
+        },
+        "personnage": {
+            "templates": [
+                "background",
+                "status"
+            ]
+        }
+    },
+    "Item": {
+        "types": [
+            "equipement",
+            "etat"
+        ],
+        "templates": {
+            "rarity": {
+                "rarity": "Common",
+                "price": 20
+            }
+        },
+        "equipement": {
+            "templates": [
+                "rarity"
+            ]
+        },
+        "etat": {
+            "templates": [
+                "rarity"
+            ]
+        }
+    }
+}
