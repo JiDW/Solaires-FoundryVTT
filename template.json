@@ -4,9 +4,51 @@
             "personnage"
         ],
         "templates": {
-            "background": {
-                "biography": "",
-                "hairColor": "blue"
+            "identite": {
+                "roles": "",
+                "profession": "",
+                "natureEsprit": "",
+                "enveloppeUsuelle":"",
+                "affiliation":"",
+                "genre":""
+            },
+            "objectif": {
+                "motivation":"",
+                "intrigue": {
+                    "etape": {
+                        "min":1,
+                        "max":1,
+                        "value":1
+                    },
+                    "objectif":"",
+                    "recompense":"",
+                    "prochaineEtape":""
+                }
+            },
+            "opinions": {
+                "technologie":"=",
+                "biologiques":"=",
+                "modifies":"=",
+                "artificiels":"=",
+                "psions":"=",
+                "religions":"=",
+                "terre":"=",
+                "colonies":"="
+            },
+            "description": {
+                "premiereImpression": "",
+                "corps": "",
+                "visage":""
+            },
+            "avatar": {
+                "premiereImpression": "",
+                "corps": "",
+                "visage": ""
+            },
+            "naissance": {
+                "dateNaissance":"",
+                "lieuNaissance":"",
+                "details":""
             },
             "status": {
                 "pointsPersonnage": {
@@ -18,8 +60,13 @@
         },
         "personnage": {
             "templates": [
-                "background",
-                "status"
+                "identite",
+                "status",
+                "objectif",
+                "opinions",
+                "description",
+                "avatar",
+                "naissance"
             ]
         }
     },
