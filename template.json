@@ -72,24 +72,56 @@
     },
     "Item": {
         "types": [
+            "trait",
+            "carriere",
+            "etat",
+            "relation",
+            "modification",
             "equipement",
-            "etat"
+            "logiciel",
+            "historique"
         ],
         "templates": {
-            "rarity": {
-                "rarity": "Common",
-                "price": 20
+            "basique": {
+                "valeur": 0,
+                "description": ""
             }
         },
-        "equipement": {
+        "carriere": {
             "templates": [
-                "rarity"
+                "basique"
             ]
         },
         "etat": {
             "templates": [
-                "rarity"
+                "basique"
             ]
+        },
+        "relation": {
+            "templates": [
+                "basique"
+            ]
+        },
+        "modification": {
+            "templates": [
+                "basique"
+            ]
+        },
+        "equipement": {
+            "templates": [
+                "basique"
+            ]
+        },
+        "logiciel": {
+            "templates": [
+                "basique"
+            ]
+        },
+        "historique": {
+           "date": "0000-00-00",
+           "carriere": "",
+           "affiliation": "",
+           "evenements":""
         }
     }
 }

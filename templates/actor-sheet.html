@@ -48,7 +48,7 @@
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
-        {{!-- Biography Tab --}}
+        {{!-- Psychologie Tab --}}
         <div class="tab psychologie" data-group="primary" data-tab="psychologie">
             <div class="objectif">
                 <h2>{{localize "SOLAIRES.Perso.MotivationObjectif"}}</h2>
@@ -112,6 +112,65 @@
                         <input type="text" data-dtype="String" name="data.opinions.colonies" value="{{data.opinions.colonies}}" />
                     </li>
                 </ul>
+            </div>
+        </div>
+
+        {{!-- Physique Tab --}}
+        <div class="tab physique" data-group="primary" data-tab="physique">
+            <div class="physique-description">
+                <h2>{{localize "SOLAIRES.Perso.Description"}}</h2>
+                <ul>
+                    <li>
+                        <label>{{localize "SOLAIRES.Perso.PremiereImpression"}}</label>
+                        <textarea name="data.description.premiereImpression" rows="3" title="{{localize "SOLAIRES.Perso.PremiereImpression"}}" data-dtype="String">{{data.description.premiereImpression}}</textarea>
+                    </li>
+                    <li>
+                        <label>{{localize "SOLAIRES.Perso.Corps"}}</label>
+                        <textarea name="data.description.corps" rows="3" title="{{localize "SOLAIRES.Perso.Corps"}}" data-dtype="String">{{data.description.corps}}</textarea>
+                    </li>
+                    <li>
+                        <label>{{localize "SOLAIRES.Perso.Visage"}}</label>
+                        <textarea name="data.description.visage" rows="3" title="{{localize "SOLAIRES.Perso.Visage"}}" data-dtype="String">{{data.description.visage}}</textarea>
+                    </li>
+                </ul>
+            </div>
+            <div class="physique-avatar">
+                <h2>{{localize "SOLAIRES.Perso.Avatar"}}</h2>
+                <ul>
+                    <li>
+                        <label>{{localize "SOLAIRES.Perso.PremiereImpression"}}</label>
+                        <textarea name="data.avatar.premiereImpression" rows="3" title="{{localize "SOLAIRES.Perso.PremiereImpression"}}" data-dtype="String">{{data.avatar.premiereImpression}}</textarea>
+                    </li>
+                    <li>
+                        <label>{{localize "SOLAIRES.Perso.Corps"}}</label>
+                        <textarea name="data.avatar.corps" rows="3" title="{{localize "SOLAIRES.Perso.Corps"}}" data-dtype="String">{{data.avatar.corps}}</textarea>
+                    </li>
+                    <li>
+                        <label>{{localize "SOLAIRES.Perso.Visage"}}</label>
+                        <textarea name="data.avatar.visage" rows="3" title="{{localize "SOLAIRES.Perso.Visage"}}" data-dtype="String">{{data.avatar.visage}}</textarea>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{!-- Situation --}}
+        <div class="tab situation" data-group="primary" data-tab="situation">
+            <div class="situation-left">
+                <h2>{{localize "SOLAIRES.Perso.Traits"}}</h2>
+                <ol class="item-list">
+                    {{#each actor.data.talents as |talent id|}}
+                    <li class="item flexrow" data-item-id="{{talent._id}}">
+                        <img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" />
+                        <span class="talent-name">{{talent.name}}</span><span class="talent-value">{{talent.value}}</span>
+                        <div class="item-controls">
+                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ol>
+            </div>
+            <div class="situation-right">
+                
             </div>
         </div>
 

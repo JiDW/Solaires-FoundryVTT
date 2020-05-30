@@ -11,7 +11,7 @@ export class SolairesActorSheet extends ActorSheet {
       template: "systems/solaires/templates/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "psychologie" }],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
     });
   }

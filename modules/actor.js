@@ -3,28 +3,27 @@
  * @extends {Actor}
  */
 export class SolairesActor extends Actor {
+    /**
+     * Augment the basic actor data with additional dynamic data.
+     * 
+     * @param {Object} actorData The data for the actor
+     * @returns {Object} The actors data
+     */
+    prepareData() {
+      super.prepareData();
+      const actorData = this.data;
+      const data = actorData.data;
+      const flags = actorData.flags;
 
-    /** @override */
-    getRollData() {
-      const data = super.getRollData();
-      const shorthand = game.settings.get("worldbuilding", "macroShorthand");
-  
-      // Re-map all attributes onto the base roll data
-      if ( !!shorthand ) {
-        for ( let [k, v] of Object.entries(data.attributes) ) {
-          if ( !(k in data) ) data[k] = v.value;
-        }
-        delete data.attributes;
-      }
-  
-      // Map all items data using their slugified names
-      data.items = this.data.items.reduce((obj, i) => {
-        let key = i.name.slugify({strict: true});
-        let itemData = duplicate(i.data);
-        obj[key] = itemData;
-        return obj;
-      }, {});
-      return data;
-    }
+      const items = actorData.items;
+      data.talents = items.find(item => item.type === "talent");
+      data.carrieres = items.filter(item => item.type === "carriere");
+      data.relations = items.filter(item => item.type === "relation");
+      data.etats = items.filter(item => item.type === "etat");
+      data.modifications = items.filter(item => item.type === "modifications");
+      data.equipements = items.filter(item => item.type === "equipement");
+      data.logiciels = items.filter(item => item.type === "logiciel");
+      data.historiques = items.filter(item => item.type === "historique");
+  }
   }
   

@@ -28,6 +28,15 @@
     "SOLAIRES.Perso.Religions": "Religions",
     "SOLAIRES.Perso.Terre": "Terre",
     "SOLAIRES.Perso.Colonies": "Colonies",
+    "SOLAIRES.Perso.Description": "Description",
+    "SOLAIRES.Perso.PremiereImpression": "Première impression",
+    "SOLAIRES.Perso.Corps": "Corps",
+    "SOLAIRES.Perso.Visage": "Visage",
+    "SOLAIRES.Perso.Avatar": "Avatar",
+    "SOLAIRES.Perso.Traits": "Traits",
+
+    "SOLAIRES.Item.Valeur": "Valeur",
+    "SOLAIRES.Item.Description": "Description",
 
     "eh":"y"
 }

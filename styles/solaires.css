@@ -14,23 +14,9 @@
     margin-bottom: 10px;
 }
 
-.solaires .sheet-header .profile-img {
-    flex: 0 0 150px;
-    height: 150px;
-    margin-right: 10px;
-    width: auto;
-}
-
 .solaires .sheet-header .header-fields {
     flex: 1;
-    height: 100px;
-}
-
-.solaires .sheet-header h1.charname {
-    height: 50px;
-    padding: 0px;
-    margin: 5px 0;
-    border-bottom: 0;
+    height: auto;
 }
 
 .solaires .sheet-header h1.charname input {
@@ -108,46 +94,7 @@
     flex: 0 0 36px;
 }
 
-.solaires .attributes-header {
-    padding: 5px;
-    margin: 5px 0;
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid #AAA;
-    border-radius: 2px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.solaires .attributes-header .attribute-label {
-    flex: 1.5;
-}
-
-.solaires .attributes-header .attribute-control {
-    flex: 0 0 20px;
-}
-
-.solaires .attributes-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.solaires .attributes-list li>* {
-    margin: 0 3px;
-    height: 28px;
-    line-height: 24px;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #AAA;
-}
-
-.solaires .attributes-list a.attribute-control {
-    flex: 0 0 20px;
-    text-align: center;
-    line-height: 28px;
-    border: none;
-}
+/* ==================== ACTOR ============== */
 
 .solaires.sheet.actor {
     min-width: 560px;
@@ -167,6 +114,20 @@
     list-style: none;
 }
 
+.solaires.sheet.actor .sheet-header .profile-img {
+    flex: 0 0 150px;
+    height: 150px;
+    margin-right: 10px;
+    width: auto;
+}
+
+.solaires.sheet.actor .sheet-header h1.charname {
+    height: 50px;
+    padding: 0px;
+    margin: 5px 0;
+    border-bottom: 0;
+}
+
 .solaires.sheet .header-fields label {
     width: 120px;
     display: inline-block;
@@ -177,7 +138,7 @@
     display: inline-block;
 }
 
-.solaires.sheet .header-fields .charname input[type="text"] {
+.solaires.sheet.actor .header-fields .charname input[type="text"] {
     width: -webkit-fill-available;
     width: -moz-available;
     margin: 8px 0px 8px 8px;
@@ -219,4 +180,41 @@
 .solaires.sheet .opinions label{
     width: 85px;
     display: inline-block;
+}
+
+.solaires.sheet .physique-description{
+    width:50%;
+    float:left;
+}
+
+.solaires.sheet .physique-avatar{
+    width:50%;
+    float:left;
+}
+
+/* ==================== ITEM ============== */
+.solaires.sheet.item .sheet-header .profile-img {
+    flex: 0 0 50px;
+    height: 50px;
+    margin-right: 10px;
+    width: auto;
+}
+
+.solaires.sheet.item .sheet-header h1.charname {
+    height: 50px;
+    padding: 0px;
+    border-bottom: 0;
+}
+
+.solaires.sheet.item .header-fields .charname input[type="text"] {
+    width: -webkit-fill-available;
+    width: -moz-available;
+}
+
+.solaires.sheet.item .editor, .solaires.sheet.item .editor-content{
+    height: 265px;
+}
+
+.solaires.sheet.item .sheet-body{
+    height:100%;
 }
