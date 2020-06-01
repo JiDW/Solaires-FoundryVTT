@@ -47,6 +47,45 @@ export class SolairesActorSheet extends ActorSheet {
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
     });
+
+    // Create Inventory Item
+    html.find('.item-ajouter').click(ev => {
+      ev.preventDefault();
+      let header = ev.currentTarget,
+      data = duplicate(header.dataset);
+
+      data["img"] = "systems/solaires/images/blank.png";
+      data["name"] = `${game.i18n.localize("SOLAIRES.Item.Nouveau")} ${data.type.capitalize()}`;
+      this.actor.createEmbeddedEntity("OwnedItem", data).then(item => this.actor.getOwnedItem(item._id).sheet.render(true));
+    });
+
+    // Increase item value
+    html.find('.item-valeur').mousedown(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      let item = duplicate(this.actor.getEmbeddedEntity("OwnedItem", li.data("itemId")));
+      switch (ev.button)
+      {
+        case 0:
+          if (ev.ctrlKey)
+            item.data.valeur += 10;
+          else
+            item.data.valeur++;
+
+          break;
+        case 2:
+          if (ev.ctrlKey)
+            item.data.valeur -= 10;
+          else
+            item.data.valeur--;
+
+          if (item.data.valeur < 0)
+            item.data.valeur = 0;
+          break;
+      }
+      this.actor.updateEmbeddedEntity("OwnedItem", item);
+    });
+
+    
   }
 
   /* -------------------------------------------- */
@@ -55,7 +94,7 @@ export class SolairesActorSheet extends ActorSheet {
   setPosition(options = {}) {
     const position = super.setPosition(options);
     const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 192;
+    const bodyHeight = position.height - 300;
     sheetBody.css("height", bodyHeight);
     return position;
   }

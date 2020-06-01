@@ -16,14 +16,13 @@ export class SolairesActor extends Actor {
       const flags = actorData.flags;
 
       const items = actorData.items;
-      data.talents = items.find(item => item.type === "talent");
+      data.traits = items.filter(item => item.type === "trait");
       data.carrieres = items.filter(item => item.type === "carriere");
       data.relations = items.filter(item => item.type === "relation");
       data.etats = items.filter(item => item.type === "etat");
-      data.modifications = items.filter(item => item.type === "modifications");
+      data.modifications = items.filter(item => item.type === "modification");
       data.equipements = items.filter(item => item.type === "equipement");
       data.logiciels = items.filter(item => item.type === "logiciel");
       data.historiques = items.filter(item => item.type === "historique");
   }
   }
-  

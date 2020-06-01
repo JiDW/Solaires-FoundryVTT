@@ -87,6 +87,11 @@
                 "description": ""
             }
         },
+        "trait": {
+            "templates": [
+                "basique"
+            ]
+        },
         "carriere": {
             "templates": [
                 "basique"

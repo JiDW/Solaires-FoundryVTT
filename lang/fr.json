@@ -34,9 +34,26 @@
     "SOLAIRES.Perso.Visage": "Visage",
     "SOLAIRES.Perso.Avatar": "Avatar",
     "SOLAIRES.Perso.Traits": "Traits",
+    "SOLAIRES.Perso.Etats": "Etats",
+    "SOLAIRES.Perso.Carrieres": "Carrières",
+    "SOLAIRES.Perso.Relations": "Relations",
+    "SOLAIRES.Perso.Modifications": "Modifications",
+    "SOLAIRES.Perso.Equipements": "Equipements",
+    "SOLAIRES.Perso.Logiciels": "Logiciels",
+    "SOLAIRES.Perso.NaissanceCreation": "Naissance - Création",
+    "SOLAIRES.Perso.Historique": "Historique",
+    "SOLAIRES.Perso.Date": "Date",
+    "SOLAIRES.Perso.Lieu": "Lieu",
+    "SOLAIRES.Perso.Details": "Détails",
+
 
     "SOLAIRES.Item.Valeur": "Valeur",
     "SOLAIRES.Item.Description": "Description",
+    "SOLAIRES.Item.PosterChat": "Envoyer au Chat",
+    "SOLAIRES.Item.Editer": "Editer",
+    "SOLAIRES.Item.Supprimer": "Supprimer",
+    "SOLAIRES.Item.Creer": "Créer une nouvelle entrée",
+    "SOLAIRES.Item.Nouveau": "Nouveau",
 
     "eh":"y"
 }
