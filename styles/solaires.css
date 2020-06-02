@@ -149,7 +149,7 @@
     display: inline-block;
 }
 
-.solaires.sheet .tab.active, .solaires.sheet .container-flex{
+.solaires.sheet.actor .tab.active, .solaires.sheet .container-flex{
     display:flex;
 }
 
@@ -236,4 +236,17 @@
 
 .solaires.sheet.item .sheet-body{
     height:100%;
+}
+
+.solaires.post-item img {
+    max-width: 50px;
+    max-height: 50px;
+    border:none;
+}
+
+.solaires.post-item h2 {
+    display:flex;
+}
+.solaires.post-item h2 strong{
+    margin:auto;
 }

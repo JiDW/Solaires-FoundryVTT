@@ -85,7 +85,12 @@ export class SolairesActorSheet extends ActorSheet {
       this.actor.updateEmbeddedEntity("OwnedItem", item);
     });
 
-    
+    // Delete Inventory Item
+    html.find('.item-post').click(ev => {
+      let itemId = $(ev.currentTarget).parents(".item").data("itemId");
+      const item = this.actor.items.find(i => i.data._id == itemId)
+      item.postItem();
+    });
   }
 
   /* -------------------------------------------- */

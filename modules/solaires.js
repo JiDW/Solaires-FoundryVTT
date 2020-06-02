@@ -6,8 +6,10 @@
 
 // Import Modules
 import { SolairesActor } from "./actor.js";
-import { SolairesItemSheet } from "./item-sheet.js";
 import { SolairesActorSheet } from "./actor-sheet.js";
+import { SolairesItem } from "./item.js";
+import { SolairesItemSheet } from "./item-sheet.js";
+
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -18,6 +20,7 @@ Hooks.once("init", async function() {
 
 	// Define custom Entity classes
   CONFIG.Actor.entityClass = SolairesActor;
+  CONFIG.Item.entityClass = SolairesItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);

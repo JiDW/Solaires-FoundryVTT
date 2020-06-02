@@ -41,7 +41,6 @@
         <a class="item" data-tab="psychologie">{{localize "SOLAIRES.Perso.Tab.Psychologie"}}</a>
         <a class="item" data-tab="physique">{{localize "SOLAIRES.Perso.Tab.Physique"}}</a>
         <a class="item" data-tab="situation">{{localize "SOLAIRES.Perso.Tab.Situation"}}</a>
-        <a class="item" data-tab="possessions">{{localize "SOLAIRES.Perso.Tab.Possessions"}}</a>
         <a class="item" data-tab="biographie">{{localize "SOLAIRES.Perso.Tab.Biographie"}}</a>
     </nav>
 
@@ -178,29 +177,6 @@
                     {{/each}}
                 </ol>
                 <h2>
-                    {{localize "SOLAIRES.Perso.Etats"}}
-                    <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="etat">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                </h2>
-                <ol class="item-list">
-                    {{#each actor.data.etats as |etat id|}}
-                    <li class="item flexrow" data-item-id="{{etat._id}}">
-                        <img src="{{etat.img}}" title="{{etat.name}}" width="24" height="24" />
-                        <span class="etat-name">{{etat.name}}</span>
-                        <span class="etat-valeur item-valeur">{{etat.data.valeur}}</span>
-                        <div class="item-controls">
-                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    {{/each}}
-                </ol>
-            </div>
-            <div class="separateur"></div>
-            <div class="situation-right colonne-flex">
-                <h2>
                     {{localize "SOLAIRES.Perso.Carrieres"}}
                     <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="carriere">
                         <i class="fas fa-plus"></i>
@@ -240,12 +216,29 @@
                     </li>
                     {{/each}}
                 </ol>
+                <h2>
+                    {{localize "SOLAIRES.Perso.Etats"}}
+                    <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="etat">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </h2>
+                <ol class="item-list">
+                    {{#each actor.data.etats as |etat id|}}
+                    <li class="item flexrow" data-item-id="{{etat._id}}">
+                        <img src="{{etat.img}}" title="{{etat.name}}" width="24" height="24" />
+                        <span class="etat-name">{{etat.name}}</span>
+                        <span class="etat-valeur item-valeur">{{etat.data.valeur}}</span>
+                        <div class="item-controls">
+                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
+                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ol>
             </div>
-        </div>
-
-        {{!-- Possessions --}}
-        <div class="tab possessions" data-group="primary" data-tab="possessions">
-            <div class="possessions-left colonne-flex">
+            <div class="separateur"></div>
+            <div class="situation-right colonne-flex">
                 <h2>
                     {{localize "SOLAIRES.Perso.Modifications"}}
                     <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="trait">
@@ -286,9 +279,6 @@
                     </li>
                     {{/each}}
                 </ol>
-            </div>
-            <div class="separateur"></div>
-            <div class="possessions-right colonne-flex">
                 <h2>
                     {{localize "SOLAIRES.Perso.Equipements"}}
                     <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="carriere">

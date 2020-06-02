@@ -1,0 +1,13 @@
+<div class="solaires post-item" data-transfer="{{transfer}}">
+    <h2>
+        {{#if img}}
+        <img src="{{img}}" title="{{name}}" />
+        {{/if}}
+        <strong>{{name}}</strong>
+    </h2>
+
+    <div class="card-content">{{{data.description}}}</div>
+    <div class="card-data">
+        <strong>{{localize "SOLAIRES.Item.Valeur"}}:</strong> {{data.valeur}}
+    </div>
+</div>
