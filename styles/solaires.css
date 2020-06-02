@@ -1,0 +1,252 @@
+.solaires .window-content {
+    height: 100%;
+    padding: 5px;
+    overflow-y: hidden;
+}
+
+.solaires .sheet-header {
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.solaires .sheet-header .header-fields {
+    flex: 1;
+    height: auto;
+}
+
+.solaires .sheet-header h1.charname input {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.solaires .resource {
+    width: 50%;
+    height: 40px;
+    margin-top: 10px;
+    float: left;
+    text-align: center;
+}
+
+.solaires .resource input {
+    width: 100px;
+    height: 28px;
+}
+
+.solaires .tabs {
+    height: 40px;
+    border-top: 1px solid #AAA;
+    border-bottom: 1px solid #AAA;
+}
+
+.solaires .tabs .item {
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.solaires .tabs .item.active {
+    text-decoration: underline;
+    text-shadow: none;
+}
+
+.solaires .sheet-body {
+    overflow: hidden;
+}
+
+.solaires .sheet-body .tab {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.solaires .editor, .solaires .editor-content {
+    height: 100%;
+}
+
+/* ==================== ACTOR ============== */
+
+.solaires.sheet.actor {
+    min-width: 560px;
+    min-height: 420px;
+}
+
+.solaires.sheet.item {
+    min-width: 460px;
+    min-height: 400px;
+}
+
+.solaires.sheet ul {
+    padding-left: 10px;
+}
+
+.solaires.sheet li {
+    list-style: none;
+}
+
+.solaires.sheet.actor .sheet-header .profile-img {
+    flex: 0 0 150px;
+    height: 150px;
+    margin-right: 10px;
+    width: auto;
+}
+
+.solaires.sheet.actor .sheet-header h1.charname {
+    height: 50px;
+    padding: 0px;
+    margin: 5px 0;
+    border-bottom: 0;
+}
+
+.solaires.sheet .header-fields label {
+    width: 120px;
+    display: inline-block;
+}
+
+.solaires.sheet .header-fields input[type="text"] {
+    width: calc(100% - 120px);
+    display: inline-block;
+}
+
+.solaires.sheet.actor .header-fields .charname input[type="text"] {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    margin: 8px 0px 8px 8px;
+}
+
+.solaires.sheet .header-pointperso-titre {
+    display: block;
+}
+
+.solaires.sheet .header-left {
+    width: 150px;
+    flex: none;
+}
+
+.solaires.sheet .header-left input[type="text"] {
+    width: 30px;
+}
+
+.solaires.sheet .intrigue-line input{
+    width:20px;
+}
+
+.solaires.sheet .objectif{
+    width: calc(100% - 130px);
+    display: block;
+}
+
+.solaires.sheet .opinions input{
+    width: 30px;
+    display: inline-block;
+}
+
+.solaires.sheet .opinions label{
+    width: 85px;
+    display: inline-block;
+}
+
+.solaires.sheet.actor .tab.active, .solaires.sheet .container-flex{
+    display:flex;
+}
+
+.solaires.sheet .opinions{
+    flex: 0 0 130px;
+}
+
+.solaires.sheet .separateur{
+    flex:0 0 10px;
+}
+
+.solaires.sheet .colonne-flex{
+    flex:1;
+}
+.solaires .item-list {
+    list-style: none;
+    margin: 7px 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.solaires .item-list .item {
+    height: 30px;
+    line-height: 24px;
+    padding: 3px 0;
+    border-bottom: 1px solid #BBB;
+}
+
+.solaires .item-list .item img {
+    flex: 0 0 24px;
+    margin-right: 5px;
+}
+
+.solaires .item-list .item-name {
+    margin: 0;
+}
+
+.solaires.sheet.actor .item-list .item-valeur {
+    flex: 0 0 20px;
+}
+
+.solaires .item-list .item-controls {
+    flex: 0 0 54px;
+    opacity:0.3;
+}
+
+.solaires.sheet.actor .item-ajouter{
+    font-size: smaller;
+    padding: 3px 5px;
+    float:right;
+}
+
+.solaires.sheet.actor .item-valeur{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.solaires.sheet.actor .item-valeur:hover{
+    text-shadow: 0 0 3px orange;
+}
+
+/* ==================== ITEM ============== */
+.solaires.sheet.item .sheet-header .profile-img {
+    flex: 0 0 50px;
+    height: 50px;
+    margin-right: 10px;
+    width: auto;
+}
+
+.solaires.sheet.item .sheet-header h1.charname {
+    height: 50px;
+    padding: 0px;
+    border-bottom: 0;
+}
+
+.solaires.sheet.item .header-fields .charname input[type="text"] {
+    width: -webkit-fill-available;
+    width: -moz-available;
+}
+
+.solaires.sheet.item .editor, .solaires.sheet.item .editor-content{
+    height: 265px;
+}
+
+.solaires.sheet.item .sheet-body{
+    height:100%;
+}
+
+.solaires.post-item img {
+    max-width: 50px;
+    max-height: 50px;
+    border:none;
+}
+
+.solaires.post-item h2 {
+    display:flex;
+}
+.solaires.post-item h2 strong{
+    margin:auto;
+}
