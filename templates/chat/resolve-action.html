@@ -1,0 +1,17 @@
+<div class="solaires resolve-action action">
+    <h2>
+        {{localize "SOLAIRES.Chat.ResolveAction"}}
+    </h2>
+    {{#if HasRoll}}
+    <div class="resolve-action-roll-container">
+        {{#each Rolls as |roll i|}}
+        <div class="resolve-action-roll {{roll.class}}"><span>{{roll.value}}</span></div>
+        {{/each}}
+    </div>
+    {{/if}}
+    <div class="resolve-action-score">{{localize "SOLAIRES.Chat.ScoreToBeat"}} <span class="resolve-action-score-value">{{ActionScore}}</span></div>
+    {{#if HasRoll}}
+    <div class="resolve-action-dice-success">{{localize "SOLAIRES.Chat.SuccessCount"}} <span class="resolve-action-dice-success-value">{{SuccessCount}}</span></div>
+    {{/if}}
+    <div class="resolve-action-result {{ClassActionResult}}">{{{TextActionResult}}}</div>
+</div>

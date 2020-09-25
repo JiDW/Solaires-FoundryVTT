@@ -16,8 +16,6 @@ export class SolairesUtility
       rollMode: modeOverride || game.settings.get("core", "rollMode"),
       content: content
     };
-    if (isRoll)
-      chatData.sound = CONFIG.sounds.dice
 
     if (["gmroll", "blindroll"].includes(chatData.rollMode)) chatData["whisper"] = ChatMessage.getWhisperIDs("GM");
     if (chatData.rollMode === "blindroll") chatData["blind"] = true;
@@ -27,6 +25,9 @@ export class SolairesUtility
       chatData["speaker"] = ChatMessage.getSpeaker();
       chatData["whisper"] = ChatMessage.getWhisperRecipients(forceWhisper);
     }
+
+    if(isRoll)
+      chatData.type = CHAT_MESSAGE_TYPES.ROLL;
 
     return chatData;
   }

@@ -1,0 +1,44 @@
+<div class="solaires begin-action action">
+    <h2>
+        {{localize "SOLAIRES.Chat.NewAction"}}
+    </h2>
+    <h3 title="{{localize "SOLAIRES.Dialog.Difficulty"}}: {{Difficulty}}, {{localize "SOLAIRES.Dialog.Significance"}}: {{Significance}}">{{localize "SOLAIRES.Chat.Difficulty"}} {{Total}}</h3>
+    <div class="action-skill action-skill-1">
+        <div class="skill-container" style="display:{{Display1.Item}}">
+            <span class="skill-actor-name">{{Item1.actorName}}</span>
+            <a class="skill-remove" data-slot="1" title="{{localize "SOLAIRES.Item.Remove"}}">
+                {{#if Unresolved}}
+                <i class="fas fa-times"></i>
+                {{/if}}
+            </a>
+            <img src="{{Item1.img}}" title="{{Item1.name}}" width="24" height="24" />
+            <span class="skill-name">{{Item1.name}}</span>
+            <span class="skill-value">{{Item1.value}}</span>
+        </div>
+        <div class="skill-placeholder" style="display:{{Display1.Placeholder}}">
+            {{localize "SOLAIRES.Chat.SelectASkill"}}
+        </div>
+    </div>
+    <div class="action-skill action-skill-2">
+        <div class="skill-container" style="display:{{Display2.Item}}">
+            <span class="skill-actor-name">{{Item2.actorName}}</span>
+            <a class="skill-remove" data-slot="2" title="{{localize "SOLAIRES.Item.Remove"}}">
+                {{#if Unresolved}}
+                <i class="fas fa-times"></i>
+                {{/if}}
+            </a>
+            <img src="{{Item2.img}}" title="{{Item2.name}}" width="24" height="24" />
+            <span class="skill-name">{{Item2.name}}</span>
+            <span class="skill-value">{{Item2.value}}</span>
+        </div>
+        <div class="skill-placeholder" style="display:{{Display2.Placeholder}}">
+            {{localize "SOLAIRES.Chat.SelectASkill"}}
+        </div>
+    </div>
+    {{#if Unresolved}}
+    <div class="action-buttons">
+        <button name="startAction" class="startAction" data-actionScore="{{ActionScore}}"><i class="fas checkMark fa-question-circle"></i> {{localize "SOLAIRES.Chat.StartRoll"}}</button>
+        <button name="approveSkills" class="approveSkills">{{localize "SOLAIRES.Chat.GMOk"}}</button>
+    </div>
+    {{/if}}
+</div>

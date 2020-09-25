@@ -14,4 +14,9 @@ export class SolairesItemSheet extends ItemSheet {
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }
+  /** @override */
+  _createEditor(target, editorOptions, initialContent) {
+    editorOptions.content_css = "systems/solaires/styles/mce.css";
+    return super._createEditor(target, editorOptions, initialContent);
+  }
 }

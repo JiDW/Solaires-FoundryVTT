@@ -1,0 +1,70 @@
+<h2>{{localize "SOLAIRES.Dialog.SelectDifficulty"}}</h2>
+<div class="dialog-buttons buttons-difficulty">
+    <button class="dialog-buttonCustom" data-button="SIMPLE">
+        <i class="fas fa-cookie-bite"></i>
+        {{localize "SOLAIRES.Difficulty.Simple"}}
+        <div class="bonus">+4</div>
+    </button>
+    <button class="dialog-buttonCustom" data-button="TOUGH">
+        <i class="fas fa-grin-beam-sweat"></i>
+        {{localize "SOLAIRES.Difficulty.Tough"}}
+        <div class="bonus">+2</div>
+    </button>
+    <button class="dialog-buttonCustom" data-button="INTRICATE">
+        <i class="fas fa-hard-hat"></i>
+        {{localize "SOLAIRES.Difficulty.Intricate"}}
+        <div class="bonus">+0</div>
+    </button>
+    <button class="dialog-buttonCustom" data-button="INSANE">
+        <i class="fas fa-fire-alt"></i>
+        {{localize "SOLAIRES.Difficulty.Insane"}}
+        <div class="bonus">-2</div>
+    </button>
+    <button class="dialog-buttonCustom" data-button="RIDICULOUS">
+        <i class="fas fa-pray"></i>
+        {{localize "SOLAIRES.Difficulty.Ridiculous"}}
+        <div class="bonus">-4</div>
+    </button>
+</div>
+<h2>{{localize "SOLAIRES.Dialog.SelectSignificance"}}</h2>
+<div class="dialog-buttons buttons-significance">
+    <button class="dialog-buttonCustom" data-button="SHOULD_SUCCEED">
+        <i class="fas fa-check-double"></i>
+        {{localize "SOLAIRES.Significance.ShouldSucceed"}}
+        <div class="bonus">+4</div>
+    </button>
+    <button class="dialog-buttonCustom" data-button="INTERESTING_SUCCESS">
+        <i class="fas fa-check"></i>
+        {{localize "SOLAIRES.Significance.InterestingSuccess"}}
+        <div class="bonus">+2</div>
+    </button>
+    <button class="dialog-buttonCustom" data-button="NEUTRAL">
+        <i class="fas fa-grip-lines"></i>
+        {{localize "SOLAIRES.Significance.Neutral"}}
+        <div class="bonus">+0</div>
+    </button>
+    <button class="dialog-buttonCustom" data-button="INTERESTING_FAIL">
+        <i class="fas fa-times"></i>
+        {{localize "SOLAIRES.Significance.InterestingFail"}}
+        <div class="bonus">-2</div>
+    </button>
+    <button class="dialog-buttonCustom" data-button="SHOULD_FAIL">
+        <i class="fas fa-skull-crossbones"></i>
+        {{localize "SOLAIRES.Significance.ShouldFail"}}
+        <div class="bonus">-4</div>
+    </button>
+</div>
+<div class="dialog-sum">
+    <div class="dialog-sum-difficulty dialog-sum-box">
+        <div class="dialog-sum-difficulty-desc dialog-sum-desc">
+            {{localize "SOLAIRES.Dialog.Difficulty"}}
+        </div>
+        <input type="number" name="dialog-sum-difficulty-value" value="0" class="dialog-sum-difficulty-value" />
+    </div>
+    <div class="dialog-sum-significance dialog-sum-box">
+        <div class="dialog-sum-significance-desc dialog-sum-desc">
+            {{localize "SOLAIRES.Dialog.Significance"}}
+        </div>
+        <input type="number" name="dialog-sum-significance-value" value="0" class="dialog-sum-significance-value" />
+    </div>
+</div>

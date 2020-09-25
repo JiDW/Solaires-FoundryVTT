@@ -4,161 +4,163 @@
     <header class="sheet-header">
         <div class="header-left">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150" />
-            <h4 class="header-pointperso-titre">{{localize "SOLAIRES.Perso.PointsPerso"}}</h4>
-            <div class="header-pointperso">
-                <input name="data.status.pointsPersonnage.value" type="text" value="{{data.status.pointsPersonnage.value}}" data-dtype="Number" placeholder="2" />
+            
+            <div class="header-charpoints">
+                <h4 class="header-charpoints-titre">{{localize "SOLAIRES.Char.CharPoints"}}</h4>
+                <span class="header-charpoints-value header-charpoints-point">{{data.status.charPoints.value}}</span>
                 <span class="sep"> / </span>
-                <input name="data.status.pointsPersonnage.max" type="text" value="{{data.status.pointsPersonnage.max}}" data-dtype="Number" placeholder="2" />
+                <span class="header-charpoints-max header-charpoints-point">{{data.status.charPoints.max}}</span>
             </div>
         </div>
         <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "SOLAIRES.Perso.Nom"}}" /></h1>
-            <ul class="identite">
+            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "SOLAIRES.Char.Name"}}" /></h1>
+            <ul class="identity">
                 <li>
-                    <label for="data.identite.roles">{{localize "SOLAIRES.Perso.Roles"}}</label><input type="text" data-dtype="String" name="data.identite.roles" value="{{data.identite.roles}}" />
+                    <label for="data.identity.roles">{{localize "SOLAIRES.Char.Roles"}}</label>
+                    <input type="hidden" class="select-role-hidden" name="data.identity.roles" data-dtype="String" value="{{data.identity.roles}}">
+                    <select class="select-role" name="select-role" multiple>
+                        {{#selectmulti RolesValue}}
+                            {{#each Roles as |role key|}}
+                                <option>{{localize role}}</option>
+                            {{/each}}
+                        {{/selectmulti}}
+                    </select>
                 </li>
                 <li>
-                    <label for="data.identite.profession">{{localize "SOLAIRES.Perso.Profession"}}</label><input type="text" data-dtype="String" name="data.identite.profession" value="{{data.identite.profession}}" />
+                    <label for="data.identity.concept">{{localize "SOLAIRES.Char.Concept"}}</label>
+                    <input type="text" data-dtype="String" name="data.identity.concept" value="{{data.identity.concept}}" />
                 </li>
                 <li>
-                    <label for="data.identite.natureEsprit">{{localize "SOLAIRES.Perso.NatureEsprit"}}</label><input type="text" data-dtype="String" name="data.identite.natureEsprit" value="{{data.identite.natureEsprit}}" />
+                    <label for="data.identity.gender">{{localize "SOLAIRES.Char.Gender"}}</label>
+                    <input type="text" data-dtype="String" name="data.identity.gender" value="{{data.identity.gender}}" />
                 </li>
                 <li>
-                    <label for="data.identite.enveloppeUsuelle">{{localize "SOLAIRES.Perso.EnveloppeUsuelle"}}</label><input type="text" data-dtype="String" name="data.identite.enveloppeUsuelle" value="{{data.identite.enveloppeUsuelle}}" />
+                    <label for="data.identity.spiritNature">{{localize "SOLAIRES.Char.SpiritNature"}}</label>
+                    <input list="list_spiritNature{{actor._id}}" type="text" data-dtype="String" name="data.identity.spiritNature" value="{{data.identity.spiritNature}}" />
+                    <datalist id="list_spiritNature{{actor._id}}">
+                        {{#each SpiritNatureTypes as |spiritNatureType key|}}
+                        <option>{{localize spiritNatureType}}</option>
+                        {{/each}}
+                    </datalist>
                 </li>
                 <li>
-                    <label for="data.identite.affiliation">{{localize "SOLAIRES.Perso.Affiliation"}}</label><input type="text" data-dtype="String" name="data.identite.affiliation" value="{{data.identite.affiliation}}" />
+                    <label for="data.identity.usualSheath">{{localize "SOLAIRES.Char.UsualSheath"}}</label>
+                    <input list="list_sheath{{actor._id}}" type="text" data-dtype="String" name="data.identity.usualSheath" value="{{data.identity.usualSheath}}" />
+                    <datalist id="list_sheath{{actor._id}}">
+                        {{#each Sheaths as |sheath key|}}
+                        <option>{{localize sheath}}</option>
+                        {{/each}}
+                    </datalist>
                 </li>
                 <li>
-                    <label for="data.identite.genre">{{localize "SOLAIRES.Perso.Genre"}}</label><input type="text" data-dtype="String" name="data.identite.genre" value="{{data.identite.genre}}" />
+                    <label for="data.identity.profession">{{localize "SOLAIRES.Char.Profession"}}</label>
+                    <input type="text" data-dtype="String" name="data.identity.profession" value="{{data.identity.profession}}" />
                 </li>
+                <li>
+                    <label for="data.identity.affiliation">{{localize "SOLAIRES.Char.Affiliation"}}</label>
+                    <input type="text" data-dtype="String" name="data.identity.affiliation" value="{{data.identity.affiliation}}" />
+                </li>
+                
             </ul>
         </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="psychologie">{{localize "SOLAIRES.Perso.Tab.Psychologie"}}</a>
-        <a class="item" data-tab="physique">{{localize "SOLAIRES.Perso.Tab.Physique"}}</a>
-        <a class="item" data-tab="situation">{{localize "SOLAIRES.Perso.Tab.Situation"}}</a>
-        <a class="item" data-tab="biographie">{{localize "SOLAIRES.Perso.Tab.Biographie"}}</a>
+        <a class="item" data-tab="behavior">{{localize "SOLAIRES.Char.Tab.Behavior"}}</a>
+        <a class="item" data-tab="description">{{localize "SOLAIRES.Char.Tab.Description"}}</a>
+        <a class="item" data-tab="chronicle">{{localize "SOLAIRES.Char.Tab.Chronicles"}}</a>
+        <a class="item" data-tab="elements">{{localize "SOLAIRES.Char.Tab.Elements"}}</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
-
-        {{!-- Psychologie Tab --}}
-        <div class="tab psychologie" data-group="primary" data-tab="psychologie">
-            <div class="objectif colonne-flex">
-                <h2>{{localize "SOLAIRES.Perso.MotivationObjectif"}}</h2>
+        {{!-- Psychology Tab --}}
+        <div class="tab behavior" data-group="primary" data-tab="behavior">
+            <div class="row-flex">
                 <ul>
                     <li>
-                        <label>{{localize "SOLAIRES.Perso.Motivation"}}</label>
-                        <textarea name="data.objectif.motivation" rows="2" title="{{localize "SOLAIRES.Perso.Motivation"}}" data-dtype="String">{{data.objectif.motivation}}</textarea>
+                        <label>{{localize "SOLAIRES.Char.Personality"}}</label>
+                        <textarea name="data.behavior.personality" rows="2" title="{{localize "SOLAIRES.Char.Personality"}}" data-dtype="String">{{data.behavior.personality}}</textarea>
                     </li>
                     <li>
-                        <div class="intrigue-line">{{localize "SOLAIRES.Perso.Intrigue"}} ({{localize "SOLAIRES.Perso.Etape"}} <input type="text" data-dtype="Number" name="data.objectif.intrigue.etape.value" value="{{data.objectif.intrigue.etape.value}}" placeholder="1" /><span class="sep"> / </span><input type="text" data-dtype="Number" name="data.objectif.intrigue.etape.max" value="{{data.objectif.intrigue.etape.max}}" placeholder="1" />)</div>
-                        <ul>
-                            <li>
-                                <label>{{localize "SOLAIRES.Perso.Objectif"}}</label>
-                                <textarea name="data.objectif.intrigue.objectif" rows="2" title="{{localize "SOLAIRES.Perso.Objectif"}}" data-dtype="String">{{data.objectif.intrigue.objectif}}</textarea>
-                            </li>
-                            <li>
-                                <label>{{localize "SOLAIRES.Perso.Recompense"}}</label>
-                                <textarea name="data.objectif.intrigue.recompense" rows="1" title="{{localize "SOLAIRES.Perso.Recompense"}}" data-dtype="String">{{data.objectif.intrigue.recompense}}</textarea>
-                            </li>
-                            <li>
-                                <label>{{localize "SOLAIRES.Perso.ProchaineEtape"}}</label>
-                                <textarea name="data.objectif.intrigue.prochaineEtape" rows="2" title="{{localize "SOLAIRES.Perso.ProchaineEtape"}}" data-dtype="String">{{data.objectif.intrigue.prochaineEtape}}</textarea>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="separateur"></div>
-            <div class="opinions">
-                <h2>{{localize "SOLAIRES.Perso.Opinions"}}</h2>
-                <ul>
-                    <li>
-                        <label>{{localize "SOLAIRES.Perso.Technologie"}}</label>
-                        <input type="text" data-dtype="String" name="data.opinions.technologie" value="{{data.opinions.technologie}}" />
+                        <label>{{localize "SOLAIRES.Char.Manners"}}</label>
+                        <textarea name="data.behavior.manners" rows="2" title="{{localize "SOLAIRES.Char.Manners"}}" data-dtype="String">{{data.behavior.manners}}</textarea>
                     </li>
                     <li>
-                        <label>{{localize "SOLAIRES.Perso.Biologiques"}}</label>
-                        <input type="text" data-dtype="String" name="data.opinions.biologiques" value="{{data.opinions.biologiques}}" />
+                        <label>{{localize "SOLAIRES.Char.Goal"}}</label>
+                        <textarea name="data.behavior.goal" rows="2" title="{{localize "SOLAIRES.Char.Goal"}}" data-dtype="String">{{data.behavior.goal}}</textarea>
                     </li>
                     <li>
-                        <label>{{localize "SOLAIRES.Perso.Modifies"}}</label>
-                        <input type="text" data-dtype="String" name="data.opinions.modifies" value="{{data.opinions.modifies}}" />
+                        <label>{{localize "SOLAIRES.Char.Motivation"}}</label>
+                        <textarea name="data.behavior.motivation" rows="2" title="{{localize "SOLAIRES.Char.Motivation"}}" data-dtype="String">{{data.behavior.motivation}}</textarea>
                     </li>
                     <li>
-                        <label>{{localize "SOLAIRES.Perso.Artificiels"}}</label>
-                        <input type="text" data-dtype="String" name="data.opinions.artificiels" value="{{data.opinions.artificiels}}" />
-                    </li>
-                    <li>
-                        <label>{{localize "SOLAIRES.Perso.Psions"}}</label>
-                        <input type="text" data-dtype="String" name="data.opinions.psions" value="{{data.opinions.psions}}" />
-                    </li>
-                    <li>
-                        <label>{{localize "SOLAIRES.Perso.Religions"}}</label>
-                        <input type="text" data-dtype="String" name="data.opinions.religions" value="{{data.opinions.religions}}" />
-                    </li>
-                    <li>
-                        <label>{{localize "SOLAIRES.Perso.Terre"}}</label>
-                        <input type="text" data-dtype="String" name="data.opinions.terre" value="{{data.opinions.terre}}" />
-                    </li>
-                    <li>
-                        <label>{{localize "SOLAIRES.Perso.Colonies"}}</label>
-                        <input type="text" data-dtype="String" name="data.opinions.colonies" value="{{data.opinions.colonies}}" />
+                        <label>{{localize "SOLAIRES.Char.Opinions"}}</label>
+                        <textarea name="data.behavior.opinions" rows="5" title="{{localize "SOLAIRES.Char.Opinions"}}" data-dtype="String">{{data.behavior.opinions}}</textarea>
                     </li>
                 </ul>
             </div>
         </div>
 
-        {{!-- Physique Tab --}}
-        <div class="tab physique" data-group="primary" data-tab="physique">
-            <div class="physique-description colonne-flex">
-                <h2>{{localize "SOLAIRES.Perso.Description"}}</h2>
+        {{!-- description Tab --}}
+        <div class="tab description" data-group="primary" data-tab="description">
+            <div class="description-description row-flex">
+                <h2>{{localize "SOLAIRES.Char.Description"}}</h2>
                 <ul>
                     <li>
-                        <label>{{localize "SOLAIRES.Perso.PremiereImpression"}}</label>
-                        <textarea name="data.description.premiereImpression" rows="3" title="{{localize "SOLAIRES.Perso.PremiereImpression"}}" data-dtype="String">{{data.description.premiereImpression}}</textarea>
+                        <label>{{localize "SOLAIRES.Char.Body"}}</label>
+                        <textarea name="data.description.body" rows="3" title="{{localize "SOLAIRES.Char.Body"}}" data-dtype="String">{{data.description.body}}</textarea>
                     </li>
                     <li>
-                        <label>{{localize "SOLAIRES.Perso.Corps"}}</label>
-                        <textarea name="data.description.corps" rows="3" title="{{localize "SOLAIRES.Perso.Corps"}}" data-dtype="String">{{data.description.corps}}</textarea>
-                    </li>
-                    <li>
-                        <label>{{localize "SOLAIRES.Perso.Visage"}}</label>
-                        <textarea name="data.description.visage" rows="3" title="{{localize "SOLAIRES.Perso.Visage"}}" data-dtype="String">{{data.description.visage}}</textarea>
+                        <label>{{localize "SOLAIRES.Char.Possessions"}}</label>
+                        <textarea name="data.description.possessions" rows="3" title="{{localize "SOLAIRES.Char.Possessions"}}" data-dtype="String">{{data.description.possessions}}</textarea>
                     </li>
                 </ul>
             </div>
-            <div class="separateur"></div>
-            <div class="physique-avatar colonne-flex">
-                <h2>{{localize "SOLAIRES.Perso.Avatar"}}</h2>
+            <div class="separator"></div>
+            <div class="description-avatar row-flex">
+                <h2>{{localize "SOLAIRES.Char.Avatar"}}</h2>
                 <ul>
                     <li>
-                        <label>{{localize "SOLAIRES.Perso.PremiereImpression"}}</label>
-                        <textarea name="data.avatar.premiereImpression" rows="3" title="{{localize "SOLAIRES.Perso.PremiereImpression"}}" data-dtype="String">{{data.avatar.premiereImpression}}</textarea>
+                        <label>{{localize "SOLAIRES.Char.Body"}}</label>
+                        <textarea name="data.avatar.body" rows="3" title="{{localize "SOLAIRES.Char.Body"}}" data-dtype="String">{{data.avatar.body}}</textarea>
                     </li>
                     <li>
-                        <label>{{localize "SOLAIRES.Perso.Corps"}}</label>
-                        <textarea name="data.avatar.corps" rows="3" title="{{localize "SOLAIRES.Perso.Corps"}}" data-dtype="String">{{data.avatar.corps}}</textarea>
-                    </li>
-                    <li>
-                        <label>{{localize "SOLAIRES.Perso.Visage"}}</label>
-                        <textarea name="data.avatar.visage" rows="3" title="{{localize "SOLAIRES.Perso.Visage"}}" data-dtype="String">{{data.avatar.visage}}</textarea>
+                        <label>{{localize "SOLAIRES.Char.Possessions"}}</label>
+                        <textarea name="data.avatar.possessions" rows="3" title="{{localize "SOLAIRES.Char.Possessions"}}" data-dtype="String">{{data.avatar.possessions}}</textarea>
                     </li>
                 </ul>
             </div>
         </div>
-        {{!-- Situation --}}
-        <div class="tab situation" data-group="primary" data-tab="situation">
-            <div class="situation-left colonne-flex">
+        {{!-- Chronicles --}}
+        <div class="tab chronicle" data-group="primary" data-tab="chronicle">
+            <div class="row-flex">
+                <h2>{{localize "SOLAIRES.Char.Birth"}}</h2>
+                <div class="container-flex">
+                    <div class="bio-date row-flex">
+                        <label>{{localize "SOLAIRES.Char.Date"}}</label>
+                        <input type="text" placerholder="0000-00-00" data-dtype="String" name="data.birth.birthday" value="{{data.birth.birthday}}" />
+                    </div>
+                    <div class="bio-lieu row-flex">
+                        <label>{{localize "SOLAIRES.Char.Place"}}</label>
+                        <input type="text" data-dtype="String" name="data.birth.place" value="{{data.birth.place}}" />
+                    </div>
+                </div>
+                <div class="bio-event">
+                    <label>{{localize "SOLAIRES.Char.Details"}}</label>
+                    <textarea name="data.birth.details" rows="3" title="{{localize "SOLAIRES.Char.Details"}}" data-dtype="String">{{data.birth.details}}</textarea>
+                </div>
+                <h2>{{localize "SOLAIRES.Char.Chronicles"}}</h2>
+                {{editor content=data.birth.story target="data.birth.story" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+        {{!-- elements --}}
+        <div class="tab elements" data-group="primary" data-tab="elements">
+            <div class="elements-left row-flex">
                 <h2>
-                    {{localize "SOLAIRES.Perso.Traits"}}
-                    <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="trait">
+                    {{localize "SOLAIRES.Char.Traits"}}
+                    <a class="item-control item-add" title="{{localize 'SOLAIRES.Item.Add'}}" data-type="trait">
                         <i class="fas fa-plus"></i>
                     </a>
                 </h2>
@@ -166,39 +168,39 @@
                     {{#each actor.data.traits as |trait id|}}
                     <li class="item flexrow" data-item-id="{{trait._id}}">
                         <img src="{{trait.img}}" title="{{trait.name}}" width="24" height="24" />
-                        <span class="trait-name">{{trait.name}}</span>
-                        <span class="trait-valeur item-valeur">{{trait.data.valeur}}</span>
+                        <span class="trait-name item-name">{{trait.name}}</span>
+                        <span class="trait-value item-value">{{trait.data.value}}</span>
                         <div class="item-controls">
-                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
+                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PostChat"}}"><i class="fas fa-comment"></i></a>
+                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Edit"}}"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Delete"}}"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
                     {{/each}}
                 </ol>
                 <h2>
-                    {{localize "SOLAIRES.Perso.Carrieres"}}
-                    <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="carriere">
+                    {{localize "SOLAIRES.Char.Careers"}}
+                    <a class="item-control item-add" title="{{localize 'SOLAIRES.Item.Add'}}" data-type="career">
                         <i class="fas fa-plus"></i>
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.carrieres as |carriere id|}}
-                    <li class="item flexrow" data-item-id="{{carriere._id}}">
-                        <img src="{{carriere.img}}" title="{{carriere.name}}" width="24" height="24" />
-                        <span class="carriere-name">{{carriere.name}}</span>
-                        <span class="carriere-valeur item-valeur">{{carriere.data.valeur}}</span>
+                    {{#each actor.data.careers as |career id|}}
+                    <li class="item flexrow" data-item-id="{{career._id}}">
+                        <img src="{{career.img}}" title="{{career.name}}" width="24" height="24" />
+                        <span class="career-name item-name">{{career.name}}</span>
+                        <span class="career-value item-value">{{career.data.value}}</span>
                         <div class="item-controls">
-                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
+                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PostChat"}}"><i class="fas fa-comment"></i></a>
+                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Edit"}}"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Delete"}}"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
                     {{/each}}
                 </ol>
                 <h2>
-                    {{localize "SOLAIRES.Perso.Relations"}}
-                    <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="relation">
+                    {{localize "SOLAIRES.Char.Relations"}}
+                    <a class="item-control item-add" title="{{localize 'SOLAIRES.Item.Add'}}" data-type="relation">
                         <i class="fas fa-plus"></i>
                     </a>
                 </h2>
@@ -206,42 +208,42 @@
                     {{#each actor.data.relations as |relation id|}}
                     <li class="item flexrow" data-item-id="{{relation._id}}">
                         <img src="{{relation.img}}" title="{{relation.name}}" width="24" height="24" />
-                        <span class="relation-name">{{relation.name}}</span>
-                        <span class="relation-valeur item-valeur">{{relation.data.valeur}}</span>
+                        <span class="relation-name item-name">{{relation.name}}</span>
+                        <span class="relation-value item-value">{{relation.data.value}}</span>
                         <div class="item-controls">
-                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
+                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PostChat"}}"><i class="fas fa-comment"></i></a>
+                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Edit"}}"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Delete"}}"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
                     {{/each}}
                 </ol>
                 <h2>
-                    {{localize "SOLAIRES.Perso.Etats"}}
-                    <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="etat">
+                    {{localize "SOLAIRES.Char.Status"}}
+                    <a class="item-control item-add" title="{{localize 'SOLAIRES.Item.Add'}}" data-type="status">
                         <i class="fas fa-plus"></i>
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.etats as |etat id|}}
-                    <li class="item flexrow" data-item-id="{{etat._id}}">
-                        <img src="{{etat.img}}" title="{{etat.name}}" width="24" height="24" />
-                        <span class="etat-name">{{etat.name}}</span>
-                        <span class="etat-valeur item-valeur">{{etat.data.valeur}}</span>
+                    {{#each actor.data.statuses as |status id|}}
+                    <li class="item flexrow" data-item-id="{{status._id}}">
+                        <img src="{{status.img}}" title="{{status.name}}" width="24" height="24" />
+                        <span class="status-name item-name">{{status.name}}</span>
+                        <span class="status-value item-value">{{status.data.value}}</span>
                         <div class="item-controls">
-                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
+                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PostChat"}}"><i class="fas fa-comment"></i></a>
+                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Edit"}}"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Delete"}}"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
                     {{/each}}
                 </ol>
             </div>
-            <div class="separateur"></div>
-            <div class="situation-right colonne-flex">
+            <div class="separator"></div>
+            <div class="elements-right row-flex">
                 <h2>
-                    {{localize "SOLAIRES.Perso.Modifications"}}
-                    <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="trait">
+                    {{localize "SOLAIRES.Char.Modifications"}}
+                    <a class="item-control item-add" title="{{localize 'SOLAIRES.Item.Add'}}" data-type="modification">
                         <i class="fas fa-plus"></i>
                     </a>
                 </h2>
@@ -249,88 +251,52 @@
                     {{#each actor.data.modifications as |modification id|}}
                     <li class="item flexrow" data-item-id="{{modification._id}}">
                         <img src="{{modification.img}}" title="{{modification.name}}" width="24" height="24" />
-                        <span class="modification-name">{{modification.name}}</span>
-                        <span class="modification-valeur item-valeur">{{modification.data.valeur}}</span>
+                        <span class="modification-name item-name">{{modification.name}}</span>
+                        <span class="modification-value item-value">{{modification.data.value}}</span>
                         <div class="item-controls">
-                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
+                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PostChat"}}"><i class="fas fa-comment"></i></a>
+                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Edit"}}"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Delete"}}"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
                     {{/each}}
                 </ol>
                 <h2>
-                    {{localize "SOLAIRES.Perso.Logiciels"}}
-                    <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="etat">
+                    {{localize "SOLAIRES.Char.Softwares"}}
+                    <a class="item-control item-add" title="{{localize 'SOLAIRES.Item.Add'}}" data-type="software">
                         <i class="fas fa-plus"></i>
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.logiciels as |logiciel id|}}
-                    <li class="item flexrow" data-item-id="{{logiciel._id}}">
-                        <img src="{{logiciel.img}}" title="{{logiciel.name}}" width="24" height="24" />
-                        <span class="logiciel-name">{{logiciel.name}}</span>
-                        <span class="logiciel-valeur item-valeur">{{logiciel.data.valeur}}</span>
+                    {{#each actor.data.softwares as |softwares id|}}
+                    <li class="item flexrow" data-item-id="{{softwares._id}}">
+                        <img src="{{softwares.img}}" title="{{softwares.name}}" width="24" height="24" />
+                        <span class="softwares-name item-name">{{softwares.name}}</span>
+                        <span class="softwares-value item-value">{{softwares.data.value}}</span>
                         <div class="item-controls">
-                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
+                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PostChat"}}"><i class="fas fa-comment"></i></a>
+                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Edit"}}"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Delete"}}"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
                     {{/each}}
                 </ol>
                 <h2>
-                    {{localize "SOLAIRES.Perso.Equipements"}}
-                    <a class="item-control item-ajouter" title="{{localize 'SOLAIRES.Item.Creer'}}" data-type="carriere">
+                    {{localize "SOLAIRES.Char.Equipments"}}
+                    <a class="item-control item-add" title="{{localize 'SOLAIRES.Item.Add'}}" data-type="equipment">
                         <i class="fas fa-plus"></i>
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.equipements as |equipement id|}}
-                    <li class="item flexrow" data-item-id="{{equipement._id}}">
-                        <img src="{{equipement.img}}" title="{{equipement.name}}" width="24" height="24" />
-                        <span class="equipement-name">{{equipement.name}}</span>
-                        <span class="equipement-valeur item-valeur">{{equipement.data.valeur}}</span>
+                    {{#each actor.data.equipments as |equipment id|}}
+                    <li class="item flexrow" data-item-id="{{equipment._id}}">
+                        <img src="{{equipment.img}}" title="{{equipment.name}}" width="24" height="24" />
+                        <span class="equipment-name item-name">{{equipment.name}}</span>
+                        <span class="equipment-value item-value">{{equipment.data.value}}</span>
                         <div class="item-controls">
-                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    {{/each}}
-                </ol>
-            </div>
-        </div>
-
-        {{!-- Biographie --}}
-        <div class="tab biographie" data-group="primary" data-tab="biographie">
-            <div class="colonne-flex">
-                <h2>{{localize "SOLAIRES.Perso.NaissanceCreation"}}</h2>
-                <div class="container-flex">
-                    <div class="bio-date colonne-flex">
-                        <label>{{localize "SOLAIRES.Perso.Date"}}</label>
-                        <input type="text" placerholder="0000-00-00" data-dtype="String" name="data.naissance.dateNaissance" value="{{data.naissance.dateNaissance}}" />
-                    </div>
-                    <div class="bio-lieu colonne-flex">
-                        <label>{{localize "SOLAIRES.Perso.Lieu"}}</label>
-                        <input type="text" data-dtype="String" name="data.naissance.lieuNaissance" value="{{data.naissance.lieuNaissance}}" />
-                    </div>
-                </div>
-                <div class="bio-evenement">
-                    <label>{{localize "SOLAIRES.Perso.Details"}}</label>
-                    <textarea name="data.naissance.details" rows="3" title="{{localize "SOLAIRES.Perso.Details"}}" data-dtype="String">{{data.naissance.details}}</textarea>
-                </div>
-                <h2>{{localize "SOLAIRES.Perso.Historique"}}</h2>
-                <ol class="historique-liste">
-                    {{#each actor.data.historiques as |historique id|}}
-                    <li class="item flexrow" data-item-id="{{historique._id}}">
-                        <img src="{{historique.img}}" title="{{historique.name}}" width="24" height="24" />
-                        <span class="historique-name">{{historique.name}}</span>
-                        <span class="historique-valeur item-valeur">{{historique.data.valeur}}</span>
-                        <div class="item-controls">
-                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PosterChat"}}"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Editer"}}"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Supprimer"}}"><i class="fas fa-trash"></i></a>
+                            <a class="item-control item-post" title="{{localize "SOLAIRES.Item.PostChat"}}"><i class="fas fa-comment"></i></a>
+                            <a class="item-control item-edit" title="{{localize "SOLAIRES.Item.Edit"}}"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize "SOLAIRES.Item.Delete"}}"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
                     {{/each}}

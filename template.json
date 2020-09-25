@@ -1,132 +1,120 @@
 {
     "Actor": {
         "types": [
-            "personnage"
+            "character"
         ],
         "templates": {
-            "identite": {
-                "roles": "",
-                "profession": "",
-                "natureEsprit": "",
-                "enveloppeUsuelle":"",
-                "affiliation":"",
-                "genre":""
-            },
-            "objectif": {
-                "motivation":"",
-                "intrigue": {
-                    "etape": {
-                        "min":1,
-                        "max":1,
-                        "value":1
-                    },
-                    "objectif":"",
-                    "recompense":"",
-                    "prochaineEtape":""
+            "identity": {
+                "identity" : {
+                    "roles": "",
+                    "concept":"",
+                    "profession": "",
+                    "spiritNature": "",
+                    "usualSheath":"",
+                    "affiliation":"",
+                    "gender":""
                 }
             },
-            "opinions": {
-                "technologie":"=",
-                "biologiques":"=",
-                "modifies":"=",
-                "artificiels":"=",
-                "psions":"=",
-                "religions":"=",
-                "terre":"=",
-                "colonies":"="
+            "behavior": {
+                "behavior": {
+                    "personality": "",
+                    "manners": "",
+                    "goal": "",
+                    "motivations":"",
+                    "opinions":""
+                }
             },
             "description": {
-                "premiereImpression": "",
-                "corps": "",
-                "visage":""
+                "description": {
+                    "body": "",
+                    "possessions":""
+                }
             },
             "avatar": {
-                "premiereImpression": "",
-                "corps": "",
-                "visage": ""
+                "avatar": {
+                    "body": "",
+                    "possessions": ""
+                }
             },
-            "naissance": {
-                "dateNaissance":"",
-                "lieuNaissance":"",
-                "details":""
+            "birth": {
+                "birth": {
+                    "birthday":"",
+                    "place":"",
+                    "details":"",
+                    "story":""
+                }
             },
             "status": {
-                "pointsPersonnage": {
-                    "min": 0,
-                    "value": 2,
-                    "max": 2
+                "status": {
+                    "charPoints": {
+                        "min": 0,
+                        "value": 3,
+                        "max": 3
+                    }
                 }
             }
         },
-        "personnage": {
+        "character": {
             "templates": [
-                "identite",
+                "identity",
                 "status",
-                "objectif",
-                "opinions",
+                "behavior",
                 "description",
                 "avatar",
-                "naissance"
+                "birth"
             ]
         }
     },
     "Item": {
         "types": [
             "trait",
-            "carriere",
-            "etat",
+            "career",
+            "status",
             "relation",
             "modification",
-            "equipement",
-            "logiciel",
-            "historique"
+            "equipment",
+            "software"
         ],
         "templates": {
-            "basique": {
-                "valeur": 0,
+            "basic": {
+                "value": 0,
                 "description": ""
             }
         },
         "trait": {
             "templates": [
-                "basique"
+                "basic"
             ]
         },
-        "carriere": {
+        "career": {
             "templates": [
-                "basique"
+                "basic"
             ]
         },
-        "etat": {
+        "status": {
             "templates": [
-                "basique"
+                "basic"
             ]
         },
         "relation": {
             "templates": [
-                "basique"
+                "basic"
             ]
         },
         "modification": {
             "templates": [
-                "basique"
+                "basic"
             ]
         },
-        "equipement": {
+        "equipment": {
             "templates": [
-                "basique"
+                "basic"
             ]
         },
-        "logiciel": {
+        "software": {
             "templates": [
-                "basique"
+                "basic"
             ]
-        },
-        "historique": {
-           "date": "0000-00-00",
-           "carriere": "",
-           "affiliation": "",
-           "evenements":""
         }
     }
 }
