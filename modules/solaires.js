@@ -57,7 +57,7 @@ Hooks.once("ready", async function () {
         return select.innerHTML;
     });
 
-    CONFIG.TinyMCE.css[0] = "./systems/solaires/styles/mce.css";
+    CONFIG.TinyMCE.content_css[0] = "./systems/solaires/styles/mce.css";
 
     game.solaires = new Solaires();
 
