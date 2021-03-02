@@ -21,12 +21,14 @@ export class SolairesActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
+    const data = this.actor.data;
+    data.actor = this.actor;
+    data.items = this.actor.items;
     data.dtypes = ["String", "Number", "Boolean"];
     data.Roles = SOLAIRES_CFG.ROLES;
     data.SpiritNatureTypes = SOLAIRES_CFG.SPIRITNATURETYPES;
     data.Sheaths = SOLAIRES_CFG.SHEATHS;
-    data.RolesValue = data.actor.data.identity ? data.actor.data.identity.roles.split(","):"";
+    data.RolesValue = data.identity ? data.identity.roles.split(","):"";
     return data;
   }
 
@@ -42,14 +44,14 @@ export class SolairesActorSheet extends ActorSheet {
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(li.data("itemId"));
+      this.actor.deleteEmbeddedDocuments("Item",li.data("itemId"));
       li.slideUp(200, () => this.render(false));
     });
 
@@ -61,13 +63,14 @@ export class SolairesActorSheet extends ActorSheet {
 
       data["img"] = "systems/solaires/images/blank.png";
       data["name"] = `${game.i18n.localize("SOLAIRES.Item.New")} ${data.type.capitalize()}`;
-      this.actor.createEmbeddedEntity("OwnedItem", data).then(item => this.actor.getOwnedItem(item._id).sheet.render(true));
+
+      return Item.create(data, {parent: this.actor, renderSheet:true});
     });
 
     // Increase item value
     html.find('.item-value').mousedown(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      let item = duplicate(this.actor.getEmbeddedEntity("OwnedItem", li.data("itemId")));
+      let item = this.actor.items.get(li.data("itemId"));
       switch (ev.button) {
         case 0:
           if (ev.ctrlKey)
@@ -86,7 +89,8 @@ export class SolairesActorSheet extends ActorSheet {
             item.data.value = 0;
           break;
       }
-      this.actor.updateEmbeddedEntity("OwnedItem", item);
+      
+      item.update(item.data);
     });
 
     // Delete Inventory Item

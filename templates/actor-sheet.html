@@ -165,7 +165,7 @@
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.traits as |trait id|}}
+                    {{#each data.traits as |trait id|}}
                     <li class="item flexrow" data-item-id="{{trait._id}}">
                         <img src="{{trait.img}}" title="{{trait.name}}" width="24" height="24" />
                         <span class="trait-name item-name">{{trait.name}}</span>
@@ -185,7 +185,7 @@
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.careers as |career id|}}
+                    {{#each data.careers as |career id|}}
                     <li class="item flexrow" data-item-id="{{career._id}}">
                         <img src="{{career.img}}" title="{{career.name}}" width="24" height="24" />
                         <span class="career-name item-name">{{career.name}}</span>
@@ -205,7 +205,7 @@
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.relations as |relation id|}}
+                    {{#each data.relations as |relation id|}}
                     <li class="item flexrow" data-item-id="{{relation._id}}">
                         <img src="{{relation.img}}" title="{{relation.name}}" width="24" height="24" />
                         <span class="relation-name item-name">{{relation.name}}</span>
@@ -225,7 +225,7 @@
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.statuses as |status id|}}
+                    {{#each data.statuses as |status id|}}
                     <li class="item flexrow" data-item-id="{{status._id}}">
                         <img src="{{status.img}}" title="{{status.name}}" width="24" height="24" />
                         <span class="status-name item-name">{{status.name}}</span>
@@ -248,7 +248,7 @@
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.modifications as |modification id|}}
+                    {{#each data.modifications as |modification id|}}
                     <li class="item flexrow" data-item-id="{{modification._id}}">
                         <img src="{{modification.img}}" title="{{modification.name}}" width="24" height="24" />
                         <span class="modification-name item-name">{{modification.name}}</span>
@@ -268,7 +268,7 @@
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.softwares as |softwares id|}}
+                    {{#each data.softwares as |softwares id|}}
                     <li class="item flexrow" data-item-id="{{softwares._id}}">
                         <img src="{{softwares.img}}" title="{{softwares.name}}" width="24" height="24" />
                         <span class="softwares-name item-name">{{softwares.name}}</span>
@@ -288,7 +288,7 @@
                     </a>
                 </h2>
                 <ol class="item-list">
-                    {{#each actor.data.equipments as |equipment id|}}
+                    {{#each data.equipments as |equipment id|}}
                     <li class="item flexrow" data-item-id="{{equipment._id}}">
                         <img src="{{equipment.img}}" title="{{equipment.name}}" width="24" height="24" />
                         <span class="equipment-name item-name">{{equipment.name}}</span>

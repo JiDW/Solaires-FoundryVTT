@@ -251,8 +251,8 @@ export class SolairesAction {
         if(data.HasRoll){
             roll = new Roll(`3d6cs<=${actionScore}`).roll();
             data.SuccessCount = parseInt(roll.result,10);
-            data.Rolls = roll.dice[0].rolls.map(obj => {
-                return {value:obj.roll,class:obj.success ? "resolve-action-roll-success":"resolve-action-roll-failed"};
+            data.Rolls = roll.dice[0].results.map(obj => {
+                return {value:obj.result,class:obj.success ? "resolve-action-roll-success":"resolve-action-roll-failed"};
             });
             result = data.SuccessCount >= 2;
         }

@@ -21,8 +21,8 @@ Hooks.once("init", async function () {
     console.log(`Initializing Solaires System`);
 
     // Define custom Entity classes
-    CONFIG.Actor.entityClass = SolairesActor;
-    CONFIG.Item.entityClass = SolairesItem;
+    CONFIG.Actor.documentClass = SolairesActor;
+    CONFIG.Item.documentClass = SolairesItem;
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);

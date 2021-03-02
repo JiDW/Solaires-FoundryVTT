@@ -27,7 +27,7 @@ export class SolairesUtility
     }
 
     if(isRoll)
-      chatData.type = CHAT_MESSAGE_TYPES.ROLL;
+      chatData.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
 
     return chatData;
   }
